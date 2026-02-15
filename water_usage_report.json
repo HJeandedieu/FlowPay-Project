@@ -1,0 +1,167 @@
+{
+    "total_water_consumed_liters": 5.893,
+    "peak_water_usage_liters": 0.429,
+    "peak_pressure_kPa": 2.14,
+    "detailed_records": [
+        {
+            "timestamp": "2026-02-15 12:37:26.889191",
+            "pulses": 192,
+            "liters_used": 0.4267,
+            "pressure_kPa": 2.13,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:27.889785",
+            "pulses": 77,
+            "liters_used": 0.1711,
+            "pressure_kPa": 0.86,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:28.890048",
+            "pulses": 173,
+            "liters_used": 0.3844,
+            "pressure_kPa": 1.92,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:29.890385",
+            "pulses": 88,
+            "liters_used": 0.1956,
+            "pressure_kPa": 0.98,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:30.891116",
+            "pulses": 127,
+            "liters_used": 0.2822,
+            "pressure_kPa": 1.41,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:31.891787",
+            "pulses": 105,
+            "liters_used": 0.2333,
+            "pressure_kPa": 1.17,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:32.891957",
+            "pulses": 156,
+            "liters_used": 0.3467,
+            "pressure_kPa": 1.73,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:33.892728",
+            "pulses": 91,
+            "liters_used": 0.2022,
+            "pressure_kPa": 1.01,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:34.893118",
+            "pulses": 67,
+            "liters_used": 0.1489,
+            "pressure_kPa": 0.74,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:35.893446",
+            "pulses": 108,
+            "liters_used": 0.24,
+            "pressure_kPa": 1.2,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:36.893767",
+            "pulses": 145,
+            "liters_used": 0.3222,
+            "pressure_kPa": 1.61,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:37.894348",
+            "pulses": 167,
+            "liters_used": 0.3711,
+            "pressure_kPa": 1.86,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:38.894689",
+            "pulses": 69,
+            "liters_used": 0.1533,
+            "pressure_kPa": 0.77,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:39.895039",
+            "pulses": 77,
+            "liters_used": 0.1711,
+            "pressure_kPa": 0.86,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:40.895703",
+            "pulses": 193,
+            "liters_used": 0.4289,
+            "pressure_kPa": 2.14,
+            "is_peak_usage": true,
+            "is_peak_pressure": true
+        },
+        {
+            "timestamp": "2026-02-15 12:37:41.895840",
+            "pulses": 150,
+            "liters_used": 0.3333,
+            "pressure_kPa": 1.67,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:42.896239",
+            "pulses": 165,
+            "liters_used": 0.3667,
+            "pressure_kPa": 1.83,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:43.896624",
+            "pulses": 170,
+            "liters_used": 0.3778,
+            "pressure_kPa": 1.89,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:44.896817",
+            "pulses": 150,
+            "liters_used": 0.3333,
+            "pressure_kPa": 1.67,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        },
+        {
+            "timestamp": "2026-02-15 12:37:45.897221",
+            "pulses": 182,
+            "liters_used": 0.4044,
+            "pressure_kPa": 2.02,
+            "is_peak_usage": false,
+            "is_peak_pressure": false
+        }
+    ]
+}
