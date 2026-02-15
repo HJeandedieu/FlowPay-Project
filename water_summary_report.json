@@ -1,0 +1,10 @@
+{
+    "initial_paid_water_liters": 5,
+    "total_water_consumed_liters": 5.151,
+    "remaining_credit_liters": 0,
+    "runtime_seconds": 20,
+    "average_usage_liters_per_second": 0.2576,
+    "average_pressure_kPa": 1.29,
+    "peak_usage_liters_per_second": 0.44,
+    "peak_pressure_kPa": 2.2
+}

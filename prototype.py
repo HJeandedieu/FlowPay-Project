@@ -4,36 +4,39 @@ import time
 import json
 from datetime import datetime
 
-# ======================================
+# =====================================================
 # CONFIGURATION
-# ======================================
+# =====================================================
 
 PULSES_PER_LITER = 450
 PRESSURE_CONSTANT = 0.05
-PAID_WATER_LITERS = 5          # User credit
-SIMULATION_SECONDS = 60        # Max runtime
+PAID_WATER_LITERS = 5          # User prepaid amount
+MAX_RUNTIME_SECONDS = 60       # Maximum monitoring duration
 
-# ======================================
+# =====================================================
 # SYSTEM STATE
-# ======================================
+# =====================================================
 
 total_pulses = 0
 total_liters_used = 0
 remaining_credit = PAID_WATER_LITERS
 valve_open = True
-
 records = []
 
-# ======================================
+# =====================================================
 # SENSOR SIMULATION
-# ======================================
+# =====================================================
 
 def read_flow_sensor():
+    """
+    Simulate water flow sensor pulses.
+    Replace this with real GPIO interrupt logic in hardware.
+    """
     return random.randint(50, 200)
 
-# ======================================
+# =====================================================
 # VALVE CONTROL
-# ======================================
+# =====================================================
 
 def open_valve():
     global valve_open
@@ -45,24 +48,24 @@ def close_valve():
     valve_open = False
     print("Valve closed.")
 
-# ======================================
-# NOTIFICATION
-# ======================================
+# =====================================================
+# USER NOTIFICATION
+# =====================================================
 
 def notify_user():
     print("ALERT: Paid water exhausted.")
-    print("Please recharge to continue.")
+    print("Please recharge to continue using water.")
 
-# ======================================
-# MAIN MONITORING SYSTEM
-# ======================================
+# =====================================================
+# MAIN MONITORING FUNCTION
+# =====================================================
 
 def monitor_water_system():
     global total_pulses, total_liters_used, remaining_credit
 
     open_valve()
 
-    for _ in range(SIMULATION_SECONDS):
+    for _ in range(MAX_RUNTIME_SECONDS):
 
         if not valve_open:
             break
@@ -74,12 +77,17 @@ def monitor_water_system():
         total_liters_used += liters_this_second
         remaining_credit -= liters_this_second
 
+        # Simulated pressure calculation
         flow_rate = liters_this_second
         pressure = flow_rate * PRESSURE_CONSTANT * 100
 
         timestamp = datetime.now()
 
-        print(f"Used: {total_liters_used:.3f} L | Remaining: {max(remaining_credit, 0):.3f} L")
+        print(
+            f"Total Used: {total_liters_used:.3f} L | "
+            f"Remaining: {max(remaining_credit, 0):.3f} L | "
+            f"Pressure: {pressure:.2f} kPa"
+        )
 
         records.append({
             "timestamp": timestamp,
@@ -90,7 +98,7 @@ def monitor_water_system():
             "pressure_kPa": round(pressure, 2)
         })
 
-        # Check credit exhaustion
+        # Shutoff condition
         if remaining_credit <= 0:
             close_valve()
             notify_user()
@@ -98,39 +106,45 @@ def monitor_water_system():
 
         time.sleep(1)
 
-# ======================================
-# ANALYSIS AND REPORTING
-# ======================================
+# =====================================================
+# SUMMARY REPORT GENERATION
+# =====================================================
 
-def generate_report():
+def generate_summary_report():
+
+    if not records:
+        print("No data recorded.")
+        return
 
     df = pd.DataFrame(records)
 
     total_consumed = df["liters_used_this_second"].sum()
+    average_usage = df["liters_used_this_second"].mean()
+    average_pressure = df["pressure_kPa"].mean()
     peak_usage = df["liters_used_this_second"].max()
     peak_pressure = df["pressure_kPa"].max()
+    runtime_seconds = len(df)
 
-    df["is_peak_usage"] = df["liters_used_this_second"] == peak_usage
-    df["is_peak_pressure"] = df["pressure_kPa"] == peak_pressure
-
-    report = {
+    summary_report = {
         "initial_paid_water_liters": PAID_WATER_LITERS,
         "total_water_consumed_liters": round(total_consumed, 3),
         "remaining_credit_liters": round(max(remaining_credit, 0), 3),
+        "runtime_seconds": runtime_seconds,
+        "average_usage_liters_per_second": round(average_usage, 4),
+        "average_pressure_kPa": round(average_pressure, 2),
         "peak_usage_liters_per_second": round(peak_usage, 3),
-        "peak_pressure_kPa": round(peak_pressure, 2),
-        "records": df.to_dict(orient="records")
+        "peak_pressure_kPa": round(peak_pressure, 2)
     }
 
-    with open("integrated_water_report.json", "w") as file:
-        json.dump(report, file, indent=4, default=str)
+    with open("water_summary_report.json", "w") as file:
+        json.dump(summary_report, file, indent=4)
 
-    print("\nReport saved as integrated_water_report.json")
+    print("\nSummary report saved as water_summary_report.json")
 
-# ======================================
-# EXECUTION ENTRY POINT
-# ======================================
+# =====================================================
+# PROGRAM ENTRY POINT
+# =====================================================
 
 if __name__ == "__main__":
     monitor_water_system()
-    generate_report()
+    generate_summary_report()
